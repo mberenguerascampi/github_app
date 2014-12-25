@@ -1,0 +1,13 @@
+package mbc.com.githubapp.api;
+
+import mbc.com.githubapp.R;
+
+import org.androidannotations.annotations.EBean;
+import org.androidannotations.annotations.rest.*;
+import org.springframework.http.converter.json.MappingJacksonHttpMessageConverter;
+
+@EBean
+public class GitHubApi {
+	@RestService
+    GitHubClient githubClient; //Inject it
+}

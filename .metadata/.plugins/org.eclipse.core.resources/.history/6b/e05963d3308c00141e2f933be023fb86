@@ -1,0 +1,34 @@
+package mbc.com.githubapp.api;
+
+import java.util.ArrayList;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.util.Log;
+
+import mbc.com.githubapp.models.*;
+
+public class Parser {
+	public Parser() {
+		
+	}
+	
+	public ArrayList<User> parseUsers(JSONObject json) {
+		try {
+			JSONArray users = json.getJSONArray("items");
+			
+			for (JSONObject user : users) {
+				
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public User parseUser(JSONObject json) {
+		return null;
+	}
+}

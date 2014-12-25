@@ -1,0 +1,9 @@
+package mbc.com.githubapp.utils;
+
+import org.androidannotations.annotations.Bean;
+
+@Bean
+public interface GitHubApiListener {
+	public String onProcessSuccessful();
+	public String onProcessError();
+}

@@ -1,0 +1,7 @@
+package mbc.com.githubapp.utils;
+
+@Bean
+public interface GitHubApiListener {
+	public String onProcessSuccessful();
+	public String onProcessError();
+}

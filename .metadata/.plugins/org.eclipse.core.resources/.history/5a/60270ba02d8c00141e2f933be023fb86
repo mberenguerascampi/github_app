@@ -1,0 +1,13 @@
+package mbc.com.githubapp.api;
+
+import mbc.com.githubapp.models.*;
+
+public class Parser {
+	public Parser() {
+		
+	}
+	
+	public ArrayList<User> parseUsers(String strUsers) {
+		
+	}
+}

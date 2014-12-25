@@ -1,0 +1,5 @@
+package mbc.com.githubapp.models;
+
+public class User {
+
+}

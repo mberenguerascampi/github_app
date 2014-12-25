@@ -1,0 +1,14 @@
+package mbc.com.githubapp.models;
+
+public class User {
+	private String loginName;
+	private String userID;
+	private String avatarURL;
+	private String gravatarID;
+	private String htmlURL;
+	private String followingURL;
+	
+	public User(){
+		
+	}
+}

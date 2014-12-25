@@ -1,0 +1,17 @@
+package mbc.com.githubapp.api;
+
+import mbc.com.githubapp.R;
+
+import org.androidannotations.annotations.rest.*;
+
+public class GitHubApi {
+
+	
+	@Rest(rootUrl = R.string.API_LINK, converters = {null })
+	public interface GitHubClient {
+	  
+	  @Get("/users/{userId}?search={search}")
+	  String getBookmarks(String search, String userId);
+	 
+	}
+}

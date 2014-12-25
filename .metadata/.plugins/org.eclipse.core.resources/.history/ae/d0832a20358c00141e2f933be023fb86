@@ -1,0 +1,29 @@
+package mbc.com.githubapp.utils;
+
+import java.util.List;
+
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import mbc.com.githubapp.models.*;
+
+public class ArrayAdapterUser extends ArrayAdapter<User>{
+	private int resourceID;
+	private List<User> users;
+
+	public ArrayAdapterUser(Context context, int resource, List<User> objects) {
+		super(context, resource, objects);
+		
+		this.resourceID = resource;
+		this.users = objects;
+	}
+
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		this.getR
+		return parent;
+
+		
+	}
+}

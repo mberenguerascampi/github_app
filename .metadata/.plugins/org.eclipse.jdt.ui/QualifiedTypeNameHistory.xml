@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="android.os.Handler"/>
+<fullyQualifiedTypeName name="android.content.Intent"/>
+<fullyQualifiedTypeName name="mbc.com.githubapp.utils.Constants"/>
+<fullyQualifiedTypeName name="mbc.com.githubapp.R"/>
+<fullyQualifiedTypeName name="mbc.com.githubapp.R.string"/>
+<fullyQualifiedTypeName name="mbc.com.githubapp.R.integer"/>
+<fullyQualifiedTypeName name="org.springframework.http.converter.json.GsonHttpMessageConverter"/>
+<fullyQualifiedTypeName name="org.androidannotations.annotations.rest.RestService"/>
+<fullyQualifiedTypeName name="mbc.com.githubapp.api.GitHubClient"/>
+<fullyQualifiedTypeName name="org.androidannotations.annotations.AfterViews"/>
+<fullyQualifiedTypeName name="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
+<fullyQualifiedTypeName name="org.androidannotations.annotations.Click"/>
+<fullyQualifiedTypeName name="mbc.com.githubapp.R.id"/>
+<fullyQualifiedTypeName name="org.androidannotations.annotations.EditorAction"/>
+<fullyQualifiedTypeName name="android.widget.EditText"/>
+<fullyQualifiedTypeName name="org.androidannotations.annotations.ViewById"/>
+<fullyQualifiedTypeName name="org.androidannotations.annotations.Background"/>
+<fullyQualifiedTypeName name="android.util.Log"/>
+<fullyQualifiedTypeName name="org.springframework.http.converter.StringHttpMessageConverter"/>
+<fullyQualifiedTypeName name="org.androidannotations.annotations.EBean"/>
+<fullyQualifiedTypeName name="org.androidannotations.annotations.Bean"/>
+<fullyQualifiedTypeName name="mbc.com.githubapp.api.GitHubApi"/>
+</qualifiedTypeNameHistroy>

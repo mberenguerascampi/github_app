@@ -1,0 +1,27 @@
+package mbc.com.githubapp.api;
+
+import mbc.com.githubapp.R;
+
+import org.androidannotations.annotations.Background;
+import org.androidannotations.annotations.EBean;
+import org.androidannotations.annotations.rest.*;
+import org.springframework.http.converter.json.MappingJacksonHttpMessageConverter;
+
+import android.util.Log;
+
+@EBean
+public class GitHubApi {
+	@RestService
+    GitHubClient githubClient; //Inject it
+	
+	public String getUser(String query) {
+		 return this.getUser(query);
+	}
+	
+	@Background
+	 Stirng getUserByRestApi(String query) {
+	     String results = githubClient.getUsers(query);
+	     Log.i("Result", results);
+	     return results;
+	 }
+}

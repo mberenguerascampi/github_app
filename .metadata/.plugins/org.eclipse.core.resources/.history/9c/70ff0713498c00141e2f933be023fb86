@@ -1,0 +1,62 @@
+package mbc.com.githubapp.utils;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.List;
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+import mbc.com.githubapp.R;
+import mbc.com.githubapp.activities.MainActivity_;
+import mbc.com.githubapp.models.*;
+
+public class ArrayAdapterUser extends ArrayAdapter<User>{
+	private int resourceID;
+	private List<User> users;
+	private Context mContext;
+	
+	public ArrayAdapterUser(Context context, int resource, List<User> objects) {
+		super(context, resource, objects);
+		
+		this.resourceID = resource;
+		this.users = objects;
+		this.mContext = context;
+	}
+
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		Log.i("ArrayAdapter", "GETVIEW");
+		if (convertView == null){
+			LayoutInflater inflater = ((MainActivity_) mContext).getLayoutInflater();
+			convertView = inflater.inflate(resourceID, parent, false);
+		}
+		
+		User user = this.users.get(position);
+		
+		TextView textViewUser = (TextView) convertView.findViewById(R.id.username_textview);
+		textViewUser.setText(user.getLoginName());
+		
+		ImageView profilePhoto = (ImageView)convertView.findViewById(R.id.profile_photo);
+		URL newurl;
+		try {
+			newurl = new URL(user.getAvatarURL());
+			Bitmap avatarIcon = BitmapFactory.decodeStream(newurl.openConnection() .getInputStream());
+			profilePhoto.setImageBitmap(avatarIcon);
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} 
+		
+		return convertView;	
+	}
+}

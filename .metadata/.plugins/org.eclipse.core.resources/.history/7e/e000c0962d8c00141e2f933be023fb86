@@ -1,0 +1,7 @@
+package mbc.com.githubapp.api;
+
+public class Parser {
+	public Parser() {
+		
+	}
+}

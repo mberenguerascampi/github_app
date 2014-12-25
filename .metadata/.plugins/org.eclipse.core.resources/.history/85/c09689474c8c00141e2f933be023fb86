@@ -1,0 +1,86 @@
+package mbc.com.githubapp.utils;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.List;
+
+import org.androidannotations.annotations.Background;
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+import mbc.com.githubapp.R;
+import mbc.com.githubapp.activities.MainActivity_;
+import mbc.com.githubapp.models.*;
+import org.androidannotations.annotations.Background;
+import org.androidannotations.annotations.Bean;
+import org.androidannotations.annotations.EBean;
+
+public class ArrayAdapterUser extends ArrayAdapter<User>{
+	private int resourceID;
+	private List<User> users;
+	private Context mContext;
+	
+	public ArrayAdapterUser(Context context, int resource, List<User> objects) {
+		super(context, resource, objects);
+		
+		this.resourceID = resource;
+		this.users = objects;
+		this.mContext = context;
+	}
+
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		Log.i("ArrayAdapter", "GETVIEW");
+		if (convertView == null){
+			LayoutInflater inflater = ((MainActivity_) mContext).getLayoutInflater();
+			convertView = inflater.inflate(resourceID, parent, false);
+		}
+		
+		User user = this.users.get(position);
+		
+		TextView textViewUser = (TextView) convertView.findViewById(R.id.username_textview);
+		textViewUser.setText(user.getLoginName());
+		
+		ImageView profilePhoto = (ImageView)convertView.findViewById(R.id.profile_photo);
+		new DownloadImageTask(profilePhoto).execute(user.getAvatarURL());
+		
+		return convertView;	
+	}
+	
+
+	private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+		ImageView image;
+
+		public DownloadImageTask(ImageView image) {
+		    this.image = image;
+		}
+
+		protected Bitmap doInBackground(String... urls) {
+		    String urldisplay = urls[0];
+		    Bitmap mIcon11 = null;
+		    try {
+		        InputStream in = new java.net.URL(urldisplay).openStream();
+		        mIcon11 = BitmapFactory.decodeStream(in);
+		    } catch (Exception e) {
+		        Log.e("Error", e.getMessage());
+		        e.printStackTrace();
+		    }
+		    return mIcon11;
+		}
+
+		protected void onPostExecute(Bitmap result) {
+			image.setImageBitmap(result);
+		}
+	}
+}

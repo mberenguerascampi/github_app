@@ -1,0 +1,25 @@
+package mbc.com.githubapp.api;
+
+import java.util.ArrayList;
+
+import org.json.JSONObject;
+
+import android.util.Log;
+
+import mbc.com.githubapp.models.*;
+
+public class Parser {
+	public Parser() {
+		
+	}
+	
+	public ArrayList<User> parseUsers(JSONObject json) {
+		//json.getJSONArray(name)
+		Log.i("parser", "parser");
+		return null;
+	}
+	
+	public User parseUser(JSONObject json) {
+		return null;
+	}
+}

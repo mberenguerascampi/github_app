@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- SPLASH -->
+    <int name="SLASH_TIME"> 3000 </int>
+    
+    <!-- API REST -->
+    <string name="API_LINK">https://api.github.com/</string>
+    
+</resources>

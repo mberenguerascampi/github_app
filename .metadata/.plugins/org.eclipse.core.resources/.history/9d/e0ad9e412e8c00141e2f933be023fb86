@@ -1,0 +1,20 @@
+package mbc.com.githubapp.api;
+
+import java.util.ArrayList;
+
+import mbc.com.githubapp.models.*;
+
+public class Parser {
+	public Parser() {
+		
+	}
+	
+	public ArrayList<User> parseUsers(String strUsers) {
+		
+		return null;
+	}
+	
+	public User parseUser(String strUser) {
+		return null;
+	}
+}

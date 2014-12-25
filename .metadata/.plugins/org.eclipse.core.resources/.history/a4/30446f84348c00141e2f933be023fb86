@@ -1,0 +1,5 @@
+package mbc.com.githubapp.utils;
+
+public class ArrayAdapterUser extends ArrayAdapter<User>{
+
+}

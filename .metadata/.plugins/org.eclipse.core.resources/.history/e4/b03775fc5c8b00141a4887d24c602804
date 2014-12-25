@@ -1,0 +1,19 @@
+package mbc.com.githubapp.api;
+
+import mbc.com.githubapp.R;
+
+import org.androidannotations.annotations.rest.*;
+import org.springframework.http.converter.json.MappingJacksonHttpMessageConverter;
+
+public class GitHubApi {
+	private final static String API_LINK = "https://api.github.com/https://api.github.com/";
+	
+}
+
+@Rest(rootUrl = API_LINK, converters = { MappingJacksonHttpMessageConverter.class })
+public interface GitHubClient {
+  
+  @Get("/users/{userId}?search={search}")
+  String getBookmarks(String search, String userId);
+ 
+}
