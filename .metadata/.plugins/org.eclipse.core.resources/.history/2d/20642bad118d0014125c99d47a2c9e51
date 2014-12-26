@@ -1,0 +1,95 @@
+package mbc.com.githubapp.models;
+
+import java.io.Serializable;
+
+public class User implements Serializable {
+	private static final long serialVersionUID = -9063560759175247668L;
+	
+	private String loginName;
+	private String userID;
+	private String avatarURL;
+	private String gravatarID;
+	private String htmlURL;
+	private String followingURL;
+	private String score;
+	private Boolean visited;
+	private Boolean favorite;
+	
+	public User(){
+		
+	}
+
+	//Getters & setters
+	
+	public String getLoginName() {
+		return loginName;
+	}
+
+	public void setLoginName(String loginName) {
+		this.loginName = loginName;
+	}
+
+	public String getUserID() {
+		return userID;
+	}
+
+	public void setUserID(String userID) {
+		this.userID = userID;
+	}
+
+	public String getAvatarURL() {
+		return avatarURL;
+	}
+
+	public void setAvatarURL(String avatarURL) {
+		this.avatarURL = avatarURL;
+	}
+
+	public String getGravatarID() {
+		return gravatarID;
+	}
+
+	public void setGravatarID(String gravatarID) {
+		this.gravatarID = gravatarID;
+	}
+
+	public String getHtmlURL() {
+		return htmlURL;
+	}
+
+	public void setHtmlURL(String htmlURL) {
+		this.htmlURL = htmlURL;
+	}
+
+	public String getFollowingURL() {
+		return followingURL;
+	}
+
+	public void setFollowingURL(String followingURL) {
+		this.followingURL = followingURL;
+	}
+
+	public String getScore() {
+		return score;
+	}
+
+	public void setScore(String score) {
+		this.score = score;
+	}
+
+	public Boolean isVisited() {
+		return visited;
+	}
+
+	public void setVisited(Boolean visited) {
+		this.visited = visited;
+	}
+
+	public Boolean isFavorite() {
+		return favorite;
+	}
+
+	public void setFavorite(Boolean favorite) {
+		this.favorite = favorite;
+	}
+}

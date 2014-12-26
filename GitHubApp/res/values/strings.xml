@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">GitHubApp</string>
-    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_splash">GitHubApp</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_main">Search GitHub Users</string>
@@ -14,9 +14,13 @@
     <string name="search_user_text">User: </string>
     <string name="search_user_hint">Type a user</string>
     <string name="search_button_text">Search</string>
+    <string name="searching_button_text">Searching&#8230;</string>
     <string name="title_activity_user_detail">UserDetailActivity</string>
     
     <!-- USER DETAIL ACTIVITY -->
     <string name="open_user_page_text">Open user page</string>
+    <string name="score_label_text">Score: </string>
+    <string name="id_label_text">ID: </string>
+    <string name="admin_label_text">Is Admin: </string>
 
 </resources>

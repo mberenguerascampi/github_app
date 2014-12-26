@@ -1,0 +1,11 @@
+package mbc.com.githubapp.utils;
+
+public class FavouriteUsersManager {
+	public FavouriteUsersManager(){
+		
+	}
+	
+	public void addFavouriteUser(String userID){
+		
+	}
+}

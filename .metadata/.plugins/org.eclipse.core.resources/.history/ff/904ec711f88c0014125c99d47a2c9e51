@@ -1,0 +1,17 @@
+package mbc.com.githubapp.utils;
+
+import android.app.Activity;
+import android.content.SharedPreferences;
+
+public class FavouriteUsersManager {
+	public FavouriteUsersManager(){
+		
+	}
+	
+	public void addFavouriteUser(Activity activity, String userID){
+		SharedPreferences sharedPreferences = activity.getPreferences(activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(key, nick);
+        editor.commit();                  
+	}
+}

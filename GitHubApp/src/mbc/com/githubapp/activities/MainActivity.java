@@ -30,6 +30,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -44,6 +45,9 @@ public class MainActivity extends ActionBarActivity implements GitHubApiListener
 	@ViewById
 	ListView usersListView;
 	
+	@ViewById
+	Button searchUserButton;
+	
 	private ArrayList<User> users;
 	private ArrayAdapterUser adapter;
 
@@ -51,25 +55,6 @@ public class MainActivity extends ActionBarActivity implements GitHubApiListener
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.gitHubApi.setListener(this);
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
 	}
 	
 	//Private Methods
@@ -85,7 +70,9 @@ public class MainActivity extends ActionBarActivity implements GitHubApiListener
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
+				view.setBackgroundResource(R.color.user_visited);
 				User userSelected = users.get(position);
+				userSelected.setVisited(true);
 				// Start User Detail activity
                 Intent intent = new Intent(MainActivity.this, UserDetailActivity_.class);
                 intent.putExtra("user",userSelected);
@@ -93,23 +80,33 @@ public class MainActivity extends ActionBarActivity implements GitHubApiListener
                 startActivity(intent);
  
                 // close this activity
-                finish();
+                //finish();
 			}
 		});
 	}
 	
 	
+	/**
+	 * Update the listview with the data changes
+	 */
+	@UiThread
+	void updateListView(){
+		this.adapter.notifyDataSetChanged();
+	}
+	
 	//Events
 	@Click(R.id.searchUserButton)
 	void onSearchButtonClick() {
+		searchUserButton.setText(getString(R.string.searching_button_text));
 		String query = this.searchUserEditText.getText().toString();
 		this.gitHubApi.getUser(query);
-		//this.getUser(query);
 	}
+		
 
+	//GitHubApiListener Methods
 	@Override
 	public void onProcessSuccessful(JSONObject result) {
-		Parser parser = new Parser();
+		Parser parser = new Parser(this);
 		ArrayList<User> usersResult = parser.parseUsers(result);
 		this.users.clear();
 		this.users.addAll(usersResult);
@@ -117,20 +114,17 @@ public class MainActivity extends ActionBarActivity implements GitHubApiListener
 		this.usersListView.post(new Runnable() {                  
 		    @Override
 		    public void run() {
+		       searchUserButton.setText(getString(R.string.search_button_text));
 		       adapter.notifyDataSetChanged();
 
 		    }
 		});
 		Log.i("USER PARSER", users.get(0).getLoginName());
 	}
-	
-	@UiThread
-	void updateListView(){
-		this.adapter.notifyDataSetChanged();
-	}
 
 	@Override
 	public void onProcessError(String error) {
-		
+		searchUserButton.setText(getString(R.string.search_button_text));
+		Log.i("ERROR", error);
 	}
 }

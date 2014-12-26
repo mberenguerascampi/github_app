@@ -1,18 +1,27 @@
 package mbc.com.githubapp.api;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.Activity;
 import android.util.Log;
 
 import mbc.com.githubapp.models.*;
+import mbc.com.githubapp.utils.FavoriteUsersManager;
 
 public class Parser {
+	private Activity activity;
+	
 	public Parser() {
 		
+	}
+	
+	public Parser(Activity activity) {
+		this.activity = activity;
 	}
 	
 	/**
@@ -51,12 +60,19 @@ public class Parser {
 			user.setAvatarURL(json.getString("avatar_url"));
 			user.setGravatarID(json.getString("gravatar_id"));
 			user.setHtmlURL(json.getString("html_url"));
-			user.setScore(json.getString("score"));
+			user.setSiteAdmin(json.getBoolean("site_admin"));
+			user.setScore(String.format("%.2f", json.getDouble("score")));
+			user.setVisited(false);
 			
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 		
 		return user;
+	}
+	
+	private Boolean isFavoriteUser(String userID){
+		FavoriteUsersManager favUserManager = new FavoriteUsersManager(this.activity);
+		return favUserManager.isFavoriteUser(userID);
 	}
 }

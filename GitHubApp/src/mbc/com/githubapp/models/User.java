@@ -11,7 +11,9 @@ public class User implements Serializable {
 	private String gravatarID;
 	private String htmlURL;
 	private String followingURL;
+	private Boolean siteAdmin;
 	private String score;
+	private Boolean visited;
 	
 	public User(){
 		
@@ -67,11 +69,27 @@ public class User implements Serializable {
 		this.followingURL = followingURL;
 	}
 
+	public Boolean isSiteAdmin() {
+		return siteAdmin;
+	}
+
+	public void setSiteAdmin(Boolean siteAdmin) {
+		this.siteAdmin = siteAdmin;
+	}
+
 	public String getScore() {
 		return score;
 	}
 
 	public void setScore(String score) {
 		this.score = score;
+	}
+
+	public Boolean isVisited() {
+		return visited;
+	}
+
+	public void setVisited(Boolean visited) {
+		this.visited = visited;
 	}
 }

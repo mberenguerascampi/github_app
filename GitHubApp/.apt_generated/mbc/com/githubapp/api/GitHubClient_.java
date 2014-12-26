@@ -25,20 +25,20 @@ public final class GitHubClient_
     }
 
     @Override
-    public String getUsersSince(String query) {
-        {
-            HashMap<String, Object> urlVariables = new HashMap<String, Object>();
-            urlVariables.put("query", query);
-            return restTemplate.exchange(rootUrl.concat("users?since={query}"), HttpMethod.GET, null, String.class, urlVariables).getBody();
-        }
-    }
-
-    @Override
     public String getUsers(String query) {
         {
             HashMap<String, Object> urlVariables = new HashMap<String, Object>();
             urlVariables.put("query", query);
             return restTemplate.exchange(rootUrl.concat("search/users?q={query}"), HttpMethod.GET, null, String.class, urlVariables).getBody();
+        }
+    }
+
+    @Override
+    public String getUsersSince(String query) {
+        {
+            HashMap<String, Object> urlVariables = new HashMap<String, Object>();
+            urlVariables.put("query", query);
+            return restTemplate.exchange(rootUrl.concat("users?since={query}"), HttpMethod.GET, null, String.class, urlVariables).getBody();
         }
     }
 

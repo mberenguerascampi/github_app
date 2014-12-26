@@ -9,20 +9,74 @@
     tools:context="mbc.com.githubapp.activities.UserDetailActivity" >
 
     <TextView
+        android:id="@+id/id_textview_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/id_label_text"
+     />
+    
+    <TextView
+        android:id="@+id/id_textview"
+        android:layout_toRightOf="@+id/id_textview_label"
+        android:layout_marginLeft="4dip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+     />
+    
+    <TextView
+        android:id="@+id/score_textview_label"
+        android:layout_below="@+id/id_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/score_label_text"
+     />
+    
+    <TextView
         android:id="@+id/score_textview"
+        android:layout_below="@+id/id_textview"
+        android:layout_toRightOf="@+id/score_textview_label"
+        android:layout_marginLeft="4dip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+     />
+    
+     <TextView
+        android:id="@+id/admin_textview_label"
+        android:layout_below="@+id/score_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/admin_label_text"
+     />
+    
+    <TextView
+        android:id="@+id/admin_textview"
+        android:layout_below="@+id/score_textview"
+        android:layout_toRightOf="@+id/admin_textview_label"
+        android:layout_marginLeft="4dip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
      />
     
     <Button 
         android:id="@+id/open_button"
-        android:layout_below="@+id/score_textview"
+        android:layout_below="@+id/admin_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dip"
+        android:layout_marginTop="12dip"
         android:text="@string/open_user_page_text"
         android:layout_centerInParent="true"
         android:gravity="center_vertical|center_horizontal"
         />
+
+    <ImageButton
+        android:id="@+id/fav_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/id_textview_label"
+        android:layout_toRightOf="@+id/open_button"
+        android:background="@null"
+        android:gravity="end"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_favorita" />
 
 </RelativeLayout>

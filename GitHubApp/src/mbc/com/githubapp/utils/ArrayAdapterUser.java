@@ -50,6 +50,10 @@ public class ArrayAdapterUser extends ArrayAdapter<User>{
 			convertView.setTag(user.getUserID());
 		}
 
+		if (user.isVisited()){
+			convertView.setBackgroundResource(R.color.user_visited);
+		}
+		
 		TextView textViewUser = (TextView) convertView.findViewById(R.id.username_textview);
 		textViewUser.setText(user.getLoginName());
 		

@@ -14,6 +14,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import mbc.com.githubapp.R.id;
 import mbc.com.githubapp.R.layout;
@@ -82,7 +83,22 @@ public final class UserDetailActivity_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
+        id_textview = ((TextView) hasViews.findViewById(id.id_textview));
+        fav_button = ((ImageButton) hasViews.findViewById(id.fav_button));
         score_textview = ((TextView) hasViews.findViewById(id.score_textview));
+        admin_textview = ((TextView) hasViews.findViewById(id.admin_textview));
+        if (fav_button!= null) {
+            fav_button.setOnClickListener(new OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    UserDetailActivity_.this.favButtonClick();
+                }
+
+            }
+            );
+        }
         {
             View view = hasViews.findViewById(id.open_button);
             if (view!= null) {
@@ -91,7 +107,7 @@ public final class UserDetailActivity_
 
                     @Override
                     public void onClick(View view) {
-                        UserDetailActivity_.this.openButtonClicked();
+                        UserDetailActivity_.this.openButtonClick();
                     }
 
                 }

@@ -1,0 +1,28 @@
+package mbc.com.githubapp.utils;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.SharedPreferences;
+
+@SuppressLint("NewApi") public class FavouriteUsersManager {
+	public FavouriteUsersManager(){
+		
+	}
+	
+	public void addFavoriteUser(Activity activity, String userID){
+		SharedPreferences sharedPreferences = activity.getPreferences(activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        
+        Set<String> favUsers = sharedPreferences.getStringSet("FAV_USERS", new HashSet<String>());
+        /*String favUsers = sharedPreferences.getString("FAV_USERS", "");
+        favUsers = favUsers + userID + "|";*/
+        favUsers.add(userID);
+       
+        editor.putStringSet("FAV_USERS", favUsers);
+        editor.commit();                  
+	}
+}
